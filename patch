@@ -77,12 +77,13 @@ def read_excel(filepath, sheet):
     for col in range(number_of_columns):
       value  = (worksheet.cell(row,col).value)
       try:
-        value = str(int(value))
+        value = float(value)
       except ValueError:
         pass
       finally:
         values.append(value)
         #Datum kann so nicht eingelesen werden, wir muessen das umwandeln am besten in Excel (erstes Datum = Minute 0)
+    #print(values)  #to test data read
     item = Trip(*values)
     items.append(item)
   return items
