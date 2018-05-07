@@ -1,0 +1,15 @@
+def possibilities(number_of_rows):
+  for i in range(0,number_of_rows-2):
+    for j in range(i+1, number_of_rows-1):
+      delta = trips[j].time_start - trips[i].time_arr
+      if delta >= 0:
+        distance = calculate_distance(trips[i].lat_start,   trips[j].lat_arr, trips[i].lon_start, trips[j].lon_arr)
+        time_distance = distance/55*60/1000
+        #print time_distance
+        #print""
+        if  delta >= time_distance:
+          possibles.append([i,j])
+  return(possibles)  
+  
+p=possibilities(number_of_rows)
+print p
